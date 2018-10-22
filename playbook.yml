@@ -1,0 +1,57 @@
+---
+- hosts: bigips
+  gather_facts: false
+  roles:
+  - { role: ansible-role-bigip_onboarding }
+  vars:
+   username: admin
+   password: admin
+   banner_text: '--Welcome to Onboarded BIGIP--'
+   hostname: 'bigipA.f5demo.com'
+
+   ntp_servers:
+   - '10.1.20.252'
+
+   dns_servers:              
+   - '4.2.2.2'
+
+   dns_search_domains:
+   - 'localdomain'
+
+   device_license: 'AAAAA-BBBBB-CCCCC-DDDDD-EEEEEEE'
+   
+   ip_version: 4
+   
+   vlan_information:
+   - name: 'external'
+     interface: '1.1'
+   - name: 'internal'
+     interface: '1.2'
+
+   selfip_information:
+   - name: '10.1.10.240'
+     address: '10.1.10.240'
+     netmask: '255.255.255.0'
+     vlan: 'external'
+     allow_service: 'default'
+   - name: '10.1.10.241'
+     address: '10.1.10.241'
+     netmask: '255.255.255.0'
+     vlan: 'external'
+     allow_service: 'default'
+   - name: '10.1.20.240'
+     address: '10.1.20.240'
+     netmask: '255.255.255.0'
+     vlan: 'internal'
+     allow_service: 'default'
+   - name: '10.1.20.241'
+     address: '10.1.20.241'
+     netmask: '255.255.255.0'
+     vlan: 'internal'
+     allow_service: 'default'
+   
+   module_provisioning:
+   - name: 'asm'
+     level: 'nominal'
+   - name: 'apm'
+     level: 'nominal'
