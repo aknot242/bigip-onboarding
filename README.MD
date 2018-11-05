@@ -11,4 +11,4 @@
 - The BIG-IP must already be configured with a management address, and must already have a strong password set if using BIG-IP v14+
 
 ## Usage
-Update the playbook.yml and hosts.ini accordingly for your environment. Run `./onboard.sh` first. Once the container is up, run `ansible-playbook /home/snops/bigip-onboarding/playbook.yml` inside the container. Playbook variables can be found in the README at https://github.com/f5devcentral/ansible-role-bigip_onboarding
+Update the playbook.yml and hosts.ini accordingly for your environment. Run `./onboard.sh` first. Once the container is up, `cd bigip-onboarding` then run `ansible-playbook /home/snops/bigip-onboarding/playbook.yml` inside the container. Playbook variables can be found in the README at https://github.com/f5devcentral/ansible-role-bigip_onboarding
